@@ -11,12 +11,20 @@
 
         
     // 2.- Componente simple; sin propiedades ni estado
-    function logRandom () {
-        console.log(Math.random())
-    }
+    // function logRandom () {
+    //     console.log(Math.random())
+    // }
 
+    // function Button () {
+    //     return <button onClick={logRandom}>Haz Click!</button>
+    // }
+
+    
+    // 3.- Componente simple; sin propiedades, con estado y manejo de eventos
+    
     function Button () {
-        return <button onClick={logRandom}>Haz Click!</button>
+        const [conteo, setConteo] = React.useState(0);
+        return <button onClick={() => setConteo(conteo + 1)}>{conteo}</button>
     }
 
     ReactDOM.render(
