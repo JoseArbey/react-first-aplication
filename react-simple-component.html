@@ -21,10 +21,18 @@
 
     
     // 3.- Componente simple; sin propiedades, con estado y manejo de eventos
-    
+    // function Button () {
+    //     const [conteo, setConteo] = React.useState(0);
+    //     return <button onClick={() => setConteo(conteo + 1)}>{conteo}</button>
+    // }
+
+    // 4.- Declare una variable para una función que maneje el evento, en lugar de la función anónima
     function Button () {
-        const [conteo, setConteo] = React.useState(0);
-        return <button onClick={() => setConteo(conteo + 1)}>{conteo}</button>
+        const [conteo, setConteo] = React.useState(0)
+
+        const handleClick = () => setConteo(conteo + 1)
+
+        return <button onClick={handleClick}>{conteo}</button>
     }
 
     ReactDOM.render(
