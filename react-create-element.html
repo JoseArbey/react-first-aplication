@@ -13,11 +13,17 @@
         // 2.- Usando el API de React para crear un elemento y renderizarlo.
         const rootElement = document.getElementById('root')
         const element = React.createElement('div', {
-            children: [
+            // children: [
+            //     'Hola a todos. ',
+            //     'Bienvenidos a React. ',
+            //     'Estamos usando la API de React. ',
+            // ],
+            children: React.createElement(
+                'span', null,
                 'Hola a todos. ',
                 'Bienvenidos a React. ',
-                'Estamos usando la API de React. ',
-            ],
+                'Estamos usando el API de React.'
+            ),
             className: 'container',
         });
         ReactDOM.render(element, rootElement)
