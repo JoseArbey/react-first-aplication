@@ -5,25 +5,30 @@
     <script src="https://cdn.jsdelivr.net/npm/@babel/standalone@7.14.1/babel.js"></script>
     <script type="text/babel">
     
-    function Button () {
-        const [conteo, setConteo] = React.useState(0)
-
-        const handleClick = () => setConteo(conteo + 1)
-
-        return <button onClick={handleClick}>{conteo}</button>
+    function Button (props) {
+        const handleClick = () => props.onClickFunction()
+        return <button onClick={handleClick}>+1</button>
     }
 
     function Display (props) {
         return <div>{props.message}</div>
     }
 
-    // Reutilizando componentes
+    function App() {
+
+        const [conteo, setConteo] = React.useState(1)
+        const incrementarConteo = () => setConteo(conteo + 1)
+
+        return (
+            <div>
+                <Button onClickFunction={incrementarConteo}/>
+                <Display message={conteo}/>
+            </div>
+        )
+    }
+
     ReactDOM.render(
-        <>
-            <Button />
-            <Display message="A este componente se le envía un argumento vía un tributo. Lo recibe un parámetro."/>
-        </>,
-        document.getElementById("root")
+        <App/>, document.getElementById("root")
     )
     </script>
 </body>
