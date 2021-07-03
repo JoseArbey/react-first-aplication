@@ -6,8 +6,8 @@
     <script type="text/babel">
     
     function Button (props) {
-        const handleClick = () => props.onClickFunction()
-        return <button onClick={handleClick}>+1</button>
+        const handleClick = () => props.onClickFunction(props.incrementsBy)
+        return <button onClick={handleClick}>+{props.incrementsBy}</button>
     }
 
     function Display (props) {
@@ -17,11 +17,15 @@
     function App() {
 
         const [conteo, setConteo] = React.useState(1)
-        const incrementarConteo = () => setConteo(conteo + 1)
+        const incrementarConteo = (incrementValue) => setConteo(conteo + incrementValue)
 
         return (
             <div>
-                <Button onClickFunction={incrementarConteo}/>
+                <Button incrementsBy={1} onClickFunction={incrementarConteo}/>
+                <Button incrementsBy={2} onClickFunction={incrementarConteo}/>
+                <Button incrementsBy={5} onClickFunction={incrementarConteo}/>
+                <Button incrementsBy={10} onClickFunction={incrementarConteo}/>
+                <Button incrementsBy={100} onClickFunction={incrementarConteo}/>
                 <Display message={conteo}/>
             </div>
         )
